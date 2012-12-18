@@ -1,0 +1,1448 @@
+  [1m[36mSQL (1.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (473.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (253.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (1.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateProjects (20121216160045)
+  [1m[36mSQL (2.2ms)[0m  [1mCREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121216160045')
+  [1m[36mSQL (1.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.7ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("projects")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2012-12-16 22:02:57 +0600
+  Processing by ProjectsController#new as HTML
+Rendered projects/_form.html.erb (28.2ms)
+Rendered projects/new.html.erb within layouts/application (59.6ms)
+Completed 200 OK in 149ms (Views: 127.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2012-12-16 22:03:08 +0600
+  Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "project"=>{"name"=>"house work"}, "commit"=>"Create Project"}
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (3.8ms)[0m  INSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ('house work', '2012-12-16 16:03:08.634541', '2012-12-16 16:03:08.634541')
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 909ms
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2012-12-16 22:03:09 +0600
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" = 1 LIMIT 1[0m
+Rendered projects/show.html.erb within layouts/application (33.6ms)
+Completed 200 OK in 123ms (Views: 100.6ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-12-16 22:03:13 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (2.8ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (39.8ms)
+Completed 200 OK in 119ms (Views: 102.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2012-12-16 22:03:15 +0600
+  Processing by ProjectsController#new as HTML
+Rendered projects/_form.html.erb (76.0ms)
+Rendered projects/new.html.erb within layouts/application (96.8ms)
+Completed 200 OK in 179ms (Views: 160.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/projects" for 127.0.0.1 at 2012-12-16 22:03:24 +0600
+  Processing by ProjectsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "project"=>{"name"=>"office work"}, "commit"=>"Create Project"}
+  [1m[36mAREL (2.3ms)[0m  [1mINSERT INTO "projects" ("name", "created_at", "updated_at") VALUES ('office work', '2012-12-16 16:03:24.468456', '2012-12-16 16:03:24.468456')[0m
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 334ms
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2012-12-16 22:03:24 +0600
+  Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mProject Load (1.0ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."id" = 2 LIMIT 1
+Rendered projects/show.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 120ms (Views: 98.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-12-16 22:03:26 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 186ms (Views: 172.1ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 22:06:10 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.8ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 42ms (Views: 36.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-16 22:15:31 +0600
+  [1m[36mSQL (2.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+NoMethodError (undefined method `devise' for User(Table doesn't exist):Class):
+  app/models/user.rb:4:in `<class:User>'
+  app/models/user.rb:1:in `<top (required)>'
+  config/routes.rb:2:in `block in <top (required)>'
+  config/routes.rb:1:in `<top (required)>'
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.3ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.8ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+  [1m[36mSQL (2.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProjects (20121216160045)
+Migrating to DeviseCreateUsers (20121216161227)
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.6ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121216161227')[0m
+  [1m[35mSQL (1.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("projects")
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2012-12-16 22:16:09 +0600
+
+ActionController::RoutingError (No route matches "/users/sign_up"):
+  
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (3.8ms)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+
+
+Started GET "/users/registration/sign_up" for 127.0.0.1 at 2012-12-16 22:17:40 +0600
+
+ActionController::RoutingError (No route matches "/users/registration/sign_up"):
+  
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.8ms)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111)
+
+
+Started GET "/users/registration/sign_up" for 127.0.0.1 at 2012-12-16 22:18:32 +0600
+  Processing by Devise::RegistrationsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (2.1ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/registrations/new.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 61ms (Views: 53.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/registration" for 127.0.0.1 at 2012-12-16 22:19:40 +0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."email" = 'mithu@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (2.6ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "password_salt", "reset_password_token", "remember_token", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES ('mithu@gmail.com', 'a15ac230408ca3b54e9d45cb3eddf49954102c26', 'clvlCCMtF-bL4x-vMb5m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2012-12-16 16:19:40.514856', '2012-12-16 16:19:40.514856')[0m
+  [1m[35mAREL (2.0ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-12-16 16:19:40.875522', "current_sign_in_at" = '2012-12-16 16:19:40.875522', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2012-12-16 16:19:40.876958' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 1070ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 22:19:41 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (37.5ms)
+Completed 200 OK in 73ms (Views: 58.4ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:20:04 +0600
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 117ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 22:20:05 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 39ms (Views: 34.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2012-12-16 22:20:16 +0600
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 55ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 22:20:16 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 41ms (Views: 35.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:20:21 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (2.1ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 148ms (Views: 54.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:27:15 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (30.2ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (140.3ms)
+Completed 500 Internal Server Error in 244ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+    7:   <%= csrf_meta_tag %>
+    8: </head>
+    9: <body>
+    10:   <% if signed_in? %>
+    11:   <%= link_to 'Sign Out', destroy_user_session_path %>
+    12:   <% else %>
+    13:   <%= link_to 'Sign In', new_user_session_path %>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__448612839524896225_28609760__2856399627811760215'
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (6.3ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (186.7ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (208.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:27:51 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (2.0ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (16.3ms)
+Completed 500 Internal Server Error in 161ms
+
+ActionView::Template::Error (wrong number of arguments (0 for 1)):
+    7:   <%= csrf_meta_tag %>
+    8: </head>
+    9: <body>
+    10:   <% if signed_in? %>
+    11:   <%= link_to 'Sign Out', destroy_user_session_path(current_user) %>
+    12:   <% else %>
+    13:   <%= link_to 'Sign In', new_user_session_path %>
+  app/views/layouts/application.html.erb:10:in `_app_views_layouts_application_html_erb__448612839524896225_69874491011820__2856399627811760215'
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (68.8ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (75.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:29:53 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (2.6ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 141ms (Views: 36.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:29:56 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (6.3ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (47.6ms)
+Completed 200 OK in 197ms (Views: 109.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2012-12-16 22:30:31 +0600
+
+ActionController::RoutingError (No route matches "/users"):
+  
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-12-16 22:31:47 +0600
+  Processing by Devise::PasswordsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (6.4ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/passwords/new.html.erb within layouts/application (84.3ms)
+Completed 200 OK in 190ms (Views: 149.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-12-16 22:32:00 +0600
+  Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu@gmail"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'mithu@gmail' LIMIT 1[0m
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (6.1ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/passwords/new.html.erb within layouts/application (41.5ms)
+Completed 200 OK in 270ms (Views: 103.7ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-12-16 22:32:06 +0600
+  Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (2.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mithu@gmail.com' LIMIT 1
+  [1m[36mAREL (3.6ms)[0m  [1mUPDATE "users" SET "reset_password_token" = 'X8kgrLQRSgg7Huy89XOQ', "updated_at" = '2012-12-16 16:32:06.721895' WHERE "users"."id" = 1[0m
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/mailer/reset_password_instructions.html.erb (3.2ms)
+
+Sent mail to mithu@gmail.com (171ms)
+Date: Sun, 16 Dec 2012 22:32:11 +0600
+From: please-change-me@config-initializers-devise.com
+To: mithu@gmail.com
+Message-ID: <50cdf78b82e03_29a93f8cf62f3d30479f4@localhost.localdomain.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello mithu@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=X8kgrLQRSgg7Huy89XOQ">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 5029ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:32:11 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (76.2ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (123.1ms)
+Completed 200 OK in 262ms (Views: 183.0ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/users/registration/sign_up" for 127.0.0.1 at 2012-12-16 22:35:03 +0600
+  Processing by Devise::RegistrationsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (6.4ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/registrations/new.html.erb within layouts/application (88.6ms)
+Completed 200 OK in 188ms (Views: 145.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/registration" for 127.0.0.1 at 2012-12-16 22:35:27 +0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.cste.30@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mSQL (0.9ms)[0m  SELECT 1 FROM "users" WHERE ("users"."email" = 'mithu.cste.30@gmail.com') LIMIT 1
+  [1m[36mAREL (2.8ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "password_salt", "reset_password_token", "remember_token", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES ('mithu.cste.30@gmail.com', 'c44d2982bc43afc39d96a9609fd7f6d60729a4fc', 'QcTe4LFFfX7WyAjBNmnA', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2012-12-16 16:35:27.557562', '2012-12-16 16:35:27.557562')[0m
+  [1m[35mAREL (2.7ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-12-16 16:35:27.954263', "current_sign_in_at" = '2012-12-16 16:35:27.954263', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2012-12-16 16:35:27.955523' WHERE "users"."id" = 2
+Redirected to http://localhost:3000/
+Completed 302 Found in 798ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 22:35:28 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mUser Load (2.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered projects/index.html.erb within layouts/application (121.9ms)
+Completed 200 OK in 194ms (Views: 176.1ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2012-12-16 22:35:31 +0600
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (2.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 22:35:31 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.8ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 121ms (Views: 106.7ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:35:37 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (6.2ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (50.9ms)
+Completed 200 OK in 193ms (Views: 111.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-12-16 22:35:41 +0600
+  Processing by Devise::PasswordsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (2.3ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/passwords/new.html.erb within layouts/application (59.1ms)
+Completed 200 OK in 151ms (Views: 108.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-12-16 22:35:55 +0600
+  Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.cste.30@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (2.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mithu.cste.30@gmail.com' LIMIT 1
+  [1m[36mAREL (3.1ms)[0m  [1mUPDATE "users" SET "reset_password_token" = 'P-nTpOE1Bbr2m2wVnpiW', "updated_at" = '2012-12-16 16:35:55.314533' WHERE "users"."id" = 2[0m
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/mailer/reset_password_instructions.html.erb (3.1ms)
+
+Sent mail to mithu.cste.30@gmail.com (40ms)
+Date: Sun, 16 Dec 2012 22:35:55 +0600
+From: please-change-me@config-initializers-devise.com
+To: mithu.cste.30@gmail.com
+Message-ID: <50cdf86bbdb8f_29a93f8cec19c5b8480df@localhost.localdomain.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello mithu.cste.30@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=P-nTpOE1Bbr2m2wVnpiW">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 597ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:35:55 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (2.2ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 63ms (Views: 36.7ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-12-16 22:38:25 +0600
+  Processing by Devise::PasswordsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (6.5ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/passwords/new.html.erb within layouts/application (157.9ms)
+Completed 200 OK in 259ms (Views: 216.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-12-16 22:38:39 +0600
+  Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.cste.30@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (2.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mithu.cste.30@gmail.com' LIMIT 1
+  [1m[36mAREL (2.5ms)[0m  [1mUPDATE "users" SET "reset_password_token" = 'PZX74wU9VmxQ9Tqup9CT', "updated_at" = '2012-12-16 16:38:39.676104' WHERE "users"."id" = 2[0m
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/mailer/reset_password_instructions.html.erb (3.0ms)
+
+Sent mail to mithu.cste.30@gmail.com (42ms)
+Date: Sun, 16 Dec 2012 22:38:40 +0600
+From: please-change-me@config-initializers-devise.com
+To: mithu.cste.30@gmail.com
+Message-ID: <50cdf91029d4a_29a93f8cf4328c1c481c5@localhost.localdomain.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello mithu.cste.30@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=PZX74wU9VmxQ9Tqup9CT">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 634ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:38:40 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (6.8ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 206ms (Views: 123.6ms | ActiveRecord: 4.7ms)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/webrick/httpserver.rb:111)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-12-16 22:39:41 +0600
+  Processing by Devise::PasswordsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (2.2ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/passwords/new.html.erb within layouts/application (56.3ms)
+Completed 200 OK in 87ms (Views: 79.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-12-16 22:39:54 +0600
+  Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.cste.30@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mithu.cste.30@gmail.com' LIMIT 1
+  [1m[36mAREL (1.0ms)[0m  [1mUPDATE "users" SET "reset_password_token" = '4ImgrQvIWFxEykJDfGoZ', "updated_at" = '2012-12-16 16:39:55.078250' WHERE "users"."id" = 2[0m
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/mailer/reset_password_instructions.html.erb (1.1ms)
+
+Sent mail to mithu.cste.30@gmail.com (169ms)
+Date: Sun, 16 Dec 2012 22:39:58 +0600
+From: please-change-me@config-initializers-devise.com
+To: mithu.cste.30@gmail.com
+Message-ID: <50cdf95e4e3fc_2aba23be1b89593a@localhost.localdomain.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello mithu.cste.30@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=4ImgrQvIWFxEykJDfGoZ">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 3562ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:39:58 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from realtime at /usr/local/rvm/rubies/ruby-1.9.2-p320/lib/ruby/1.9.1/benchmark.rb:310)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/shared/_links.erb (2.0ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/devise-1.1.rc0/app/views/devise/sessions/new.html.erb within layouts/application (16.2ms)
+Completed 200 OK in 64ms (Views: 36.1ms | ActiveRecord: 2.6ms)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-12-16 22:51:57 +0600
+  Processing by Devise::PasswordsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_passwords_new_html_erb___159947714898965500_70168332279480_250808177879677 at /media/work/railsprojects/devise/app/views/devise/passwords/new.html.erb:3)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from block in _app_views_devise_passwords_new_html_erb___159947714898965500_70168332279480_250808177879677 at /media/work/railsprojects/devise/app/views/devise/passwords/new.html.erb:4)
+Rendered devise/shared/_links.erb (6.1ms)
+Rendered devise/passwords/new.html.erb within layouts/application (86.4ms)
+Completed 200 OK in 264ms (Views: 150.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-12-16 22:52:20 +0600
+  Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.cste.30@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (2.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mithu.cste.30@gmail.com' LIMIT 1
+  [1m[36mAREL (0.9ms)[0m  [1mUPDATE "users" SET "reset_password_token" = 'S2eWMqiLaCa7kZElje94', "updated_at" = '2012-12-16 16:52:20.534946' WHERE "users"."id" = 2[0m
+Rendered devise/mailer/reset_password_instructions.html.erb (1.1ms)
+
+Sent mail to mithu.cste.30@gmail.com (13ms)
+Date: Sun, 16 Dec 2012 22:52:21 +0600
+From: please-change-me@config-initializers-devise.com
+To: mithu.cste.30@gmail.com
+Message-ID: <50cdfc452f5d_2aba3fd15677c510960ca@localhost.localdomain.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello mithu.cste.30@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=S2eWMqiLaCa7kZElje94">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 631ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:52:21 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3540111883330061746_30249160_250808177879677 at /media/work/railsprojects/devise/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (51.6ms)
+Completed 200 OK in 106ms (Views: 74.1ms | ActiveRecord: 3.2ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+
+
+Started GET "/users/registration/sign_up" for 127.0.0.1 at 2012-12-16 22:57:44 +0600
+  Processing by Devise::RegistrationsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_registrations_new_html_erb___1937203120294019914_35868820_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/registrations/new.html.erb:3)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from block in _app_views_devise_registrations_new_html_erb___1937203120294019914_35868820_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/registrations/new.html.erb:4)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/registrations/new.html.erb within layouts/application (33.5ms)
+Completed 200 OK in 114ms (Views: 95.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/registration" for 127.0.0.1 at 2012-12-16 22:58:04 +0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.telnet@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."email" = 'mithu.telnet@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (3.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "password_salt", "reset_password_token", "remember_token", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES ('mithu.telnet@gmail.com', 'cfd0a4da9620a7514539060da850fe0d38784ed1', 'f6IgcszcNvi6tP4v-lsR', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2012-12-16 16:58:05.085617', '2012-12-16 16:58:05.085617')[0m
+  [1m[35mAREL (2.6ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-12-16 16:58:05.456651', "current_sign_in_at" = '2012-12-16 16:58:05.456651', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2012-12-16 16:58:05.458418' WHERE "users"."id" = 3
+Redirected to http://localhost:3000/
+Completed 302 Found in 876ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 22:58:05 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+Rendered projects/index.html.erb within layouts/application (96.6ms)
+Completed 200 OK in 122ms (Views: 115.7ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2012-12-16 22:58:07 +0600
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Redirected to http://localhost:3000/
+Completed 302 Found in 29ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 22:58:07 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.6ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 51ms (Views: 46.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:58:10 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb__192872147604607047_70046221090900_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 67ms (Views: 39.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2012-12-16 22:59:27 +0600
+  Processing by Devise::PasswordsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_passwords_new_html_erb___3132735482787231058_22231140_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/passwords/new.html.erb:3)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from block in _app_views_devise_passwords_new_html_erb___3132735482787231058_22231140_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/passwords/new.html.erb:4)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/passwords/new.html.erb within layouts/application (67.4ms)
+Completed 200 OK in 173ms (Views: 129.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2012-12-16 22:59:39 +0600
+  Processing by Devise::PasswordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.telnet@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mithu.telnet@gmail.com' LIMIT 1
+  [1m[36mAREL (3.8ms)[0m  [1mUPDATE "users" SET "reset_password_token" = 'b2Ay7CK5biOaV1lOH2JP', "updated_at" = '2012-12-16 16:59:39.495769' WHERE "users"."id" = 3[0m
+Rendered devise/mailer/reset_password_instructions.html.erb (1.1ms)
+
+Sent mail to mithu.telnet@gmail.com (10237ms)
+Date: Sun, 16 Dec 2012 22:59:40 +0600
+From: please-change-me@config-initializers-devise.com
+To: mithu.telnet@gmail.com
+Message-ID: <50cdfdfc14e20_2b603fb4e80d8eb4687f8@localhost.localdomain.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello mithu.telnet@gmail.com!</p>
+
+<p>Someone has requested a link to change your password, and you can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=b2Ay7CK5biOaV1lOH2JP">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 10863ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 22:59:50 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb__192872147604607047_70046220263360_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (6.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (60.8ms)
+Completed 200 OK in 148ms (Views: 119.6ms | ActiveRecord: 4.7ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+  [1m[36mSQL (2.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.9ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.9ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20121216161227)
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (4.8ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35mAREL (1.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20121216161227'
+  [1m[36mSQL (1.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.9ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.7ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("projects")[0m
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+  [1m[36mSQL (2.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProjects (20121216160045)
+Migrating to DeviseCreateUsers (20121216161227)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "confirmation_token" varchar(255), "confirmed_at" datetime, "confirmation_sent_at" datetime, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_confirmation_token" ON "users" ("confirmation_token")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_confirmation_token')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20121216161227')[0m
+  [1m[35mSQL (1.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("projects")
+  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_users_on_confirmation_token')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 23:05:14 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb__192872147604607047_70046221179900_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 161ms (Views: 38.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 23:05:15 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb__192872147604607047_70046221692980_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 107ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/registration/sign_up" for 127.0.0.1 at 2012-12-16 23:05:19 +0600
+  Processing by Devise::RegistrationsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_registrations_new_html_erb___1937203120294019914_19665360_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/registrations/new.html.erb:3)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from block in _app_views_devise_registrations_new_html_erb___1937203120294019914_19665360_4436661782585635259 at /media/work/railsprojects/devise/app/views/devise/registrations/new.html.erb:4)
+Rendered devise/shared/_links.erb (6.5ms)
+Rendered devise/registrations/new.html.erb within layouts/application (174.3ms)
+Completed 200 OK in 296ms (Views: 241.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/registration" for 127.0.0.1 at 2012-12-16 23:05:37 +0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.telnet@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mSQL (0.8ms)[0m  SELECT 1 FROM "users" WHERE ("users"."email" = 'mithu.telnet@gmail.com') LIMIT 1
+  [1m[36mAREL (3.5ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "password_salt", "confirmation_token", "confirmed_at", "confirmation_sent_at", "reset_password_token", "remember_token", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES ('mithu.telnet@gmail.com', '756edc8e67e9ffa5523c270ab0ab89ae4f5a8ca1', 'Y2sC7oEKNumsOCpEpOCT', 'AWM1CsdjNgtmom2gaogN', NULL, '2012-12-16 17:05:37.677552', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2012-12-16 17:05:37.677927', '2012-12-16 17:05:37.677927')[0m
+Rendered devise/mailer/confirmation_instructions.html.erb (116.0ms)
+Completed 500 Internal Server Error in 500ms
+
+ActionView::Template::Error (undefined method `user_confirmation_url' for #<#<Class:0x007f69d039a3a0>:0x007f69d0398140>):
+    2: 
+    3: <p>You can confirm your account through the link below:</p>
+    4: 
+    5: <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+  app/views/devise/mailer/confirmation_instructions.html.erb:5:in `_app_views_devise_mailer_confirmation_instructions_html_erb___3915373514094668457_70046220889700_4436661782585635259'
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.4ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (245.5ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (265.4ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+
+
+Started POST "/users/registration" for 127.0.0.1 at 2012-12-16 23:06:49 +0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.telnet@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mSQL (0.4ms)[0m  SELECT 1 FROM "users" WHERE ("users"."email" = 'mithu.telnet@gmail.com') LIMIT 1
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "password_salt", "confirmation_token", "confirmed_at", "confirmation_sent_at", "reset_password_token", "remember_token", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES ('mithu.telnet@gmail.com', 'bd636d802b80125df598cc5674d55476a4faea7a', 'XkUhKLzaPWmOt46VS98M', 'vmJ7m3AFuC5RRcmNUfsT', NULL, '2012-12-16 17:06:50.222633', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2012-12-16 17:06:50.222996', '2012-12-16 17:06:50.222996')[0m
+Rendered devise/mailer/confirmation_instructions.html.erb (7.5ms)
+Completed 500 Internal Server Error in 223ms
+
+ActionView::Template::Error (undefined method `user_confirmation_url' for #<#<Class:0x000000049fc7d0>:0x000000048e7390>):
+    2: 
+    3: <p>You can confirm your account through the link below:</p>
+    4: 
+    5: <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+  app/views/devise/mailer/confirmation_instructions.html.erb:5:in `_app_views_devise_mailer_confirmation_instructions_html_erb___3915373514094668457_39988580_4436661782585635259'
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (244.2ms)
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (253.3ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+
+
+Started GET "/users/registration/sign_up" for 127.0.0.1 at 2012-12-16 23:11:24 +0600
+  Processing by Devise::RegistrationsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_registrations_new_html_erb__47814043593539568_14990440_2784228233986046502 at /media/work/railsprojects/devise/app/views/devise/registrations/new.html.erb:3)
+DEPRECATION WARNING: f.error_messages was removed from Rails and is now available as a plugin. Please install it with `rails plugin install git://github.com/rails/dynamic_form.git`. (called from block in _app_views_devise_registrations_new_html_erb__47814043593539568_14990440_2784228233986046502 at /media/work/railsprojects/devise/app/views/devise/registrations/new.html.erb:4)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/registrations/new.html.erb within layouts/application (65.1ms)
+Completed 200 OK in 94ms (Views: 85.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/registration" for 127.0.0.1 at 2012-12-16 23:11:43 +0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0TPDNqH9Miych3+ecpgc+ptC9DmnBi+/zdUpNesP5Eg=", "user"=>{"email"=>"mithu.telnet@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mSQL (1.0ms)[0m  [1mSELECT 1 FROM "users" WHERE ("users"."email" = 'mithu.telnet@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (3.7ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "password_salt", "confirmation_token", "confirmed_at", "confirmation_sent_at", "reset_password_token", "remember_token", "remember_created_at", "sign_in_count", "current_sign_in_at", "last_sign_in_at", "current_sign_in_ip", "last_sign_in_ip", "created_at", "updated_at") VALUES ('mithu.telnet@gmail.com', 'd734163f7801d06785456191c756e68f06e8759e', 'V4zb8K37r8yoBWS6_OtZ', '7OjvWe6XogtcQhBJM0If', NULL, '2012-12-16 17:11:43.651450', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2012-12-16 17:11:43.651790', '2012-12-16 17:11:43.651790')[0m
+Rendered devise/mailer/confirmation_instructions.html.erb (3.1ms)
+
+Sent mail to mithu.telnet@gmail.com (13452ms)
+Date: Sun, 16 Dec 2012 23:11:44 +0600
+From: please-change-me@config-initializers-devise.com
+To: mithu.telnet@gmail.com
+Message-ID: <50ce00d019289_2c371b19f58947ae@localhost.localdomain.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mithu.telnet@gmail.com!</p>
+
+<p>You can confirm your account through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=7OjvWe6XogtcQhBJM0If">Confirm my account</a></p>
+Completed   in 14793ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-16 23:11:57 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb__3264063078211704134_10845220_2784228233986046502 at /media/work/railsprojects/devise/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 73ms (Views: 37.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/users/confirmation?confirmation_token=7OjvWe6XogtcQhBJM0If" for 127.0.0.1 at 2012-12-16 23:12:09 +0600
+  Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"7OjvWe6XogtcQhBJM0If"}
+  [1m[35mUser Load (1.7ms)[0m  SELECT "users".* FROM "users" WHERE "users"."confirmation_token" = '7OjvWe6XogtcQhBJM0If' LIMIT 1
+  [1m[36mAREL (0.9ms)[0m  [1mUPDATE "users" SET "confirmation_token" = NULL, "confirmed_at" = '2012-12-16 17:12:09.686998', "updated_at" = '2012-12-16 17:12:09.687382' WHERE "users"."id" = 1[0m
+  [1m[35mAREL (2.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = '2012-12-16 17:12:10.052637', "current_sign_in_at" = '2012-12-16 17:12:10.052637', "last_sign_in_ip" = '127.0.0.1', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2012-12-16 17:12:10.054164' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 784ms
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-16 23:12:10 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered projects/index.html.erb within layouts/application (84.0ms)
+Completed 200 OK in 124ms (Views: 108.0ms | ActiveRecord: 7.9ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise/config/routes.rb:2)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 17:53:33 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 197ms (Views: 72.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 17:53:37 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___55570445440130369_70196744992240__3006292086401726458 at /media/work/railsprojects/devise/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (26.3ms)
+Completed 200 OK in 142ms (Views: 72.1ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/initializers/setup_mail.rb:1)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/environment.rb:5)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/environment.rb:5)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProjects (20121216160045)
+Migrating to DeviseCreateUsers (20121216161227)
+Migrating to AddRpxToUsers (20121218151305)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (28.6ms)[0m  [1mALTER TABLE "users" ADD "rpx_identifier" varchar(255)[0m
+  [1m[35mSQL (1.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20121218151305')
+  [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("projects")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_confirmation_token')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 21:19:28 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 136ms (Views: 42.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:19:31 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___1286007959700889466_40101200__3095643442060468230 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (3.8ms)
+Rendered devise/sessions/new.html.erb within layouts/application (37.0ms)
+Completed 200 OK in 117ms (Views: 61.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:19:36 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___1286007959700889466_40021920__3095643442060468230 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 115ms (Views: 82.3ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/environment.rb:5)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:20:02 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_22755360__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 94ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:20:05 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_70336969137440__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 104ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:20:06 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_70337035355700__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 136ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 21:20:56 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.3ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 133ms (Views: 52.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:20:59 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_70336969197440__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (5.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 121ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:23:31 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_70337038199340__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (18.6ms)
+Completed 200 OK in 102ms (Views: 42.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:28:18 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_70337038720080__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 100ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:28:19 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_12713400__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (6.7ms)
+Rendered devise/sessions/new.html.erb within layouts/application (61.3ms)
+Completed 200 OK in 142ms (Views: 104.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:28:19 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_16763400__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 76ms (Views: 45.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:28:19 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_70336902458360__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 74ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:28:20 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___3225709529934975009_70336936348740__503609997336472128 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 73ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/environment.rb:5)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+DEPRECATION WARNING: :name_prefix was deprecated in the new router syntax. Use :as instead. (called from block in <top (required)> at /media/work/railsprojects/devise_rpx_connectable/config/routes.rb:2)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:29:47 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313986194540_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 92ms (Views: 40.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:29:49 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313917089460_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 110ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:29:50 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313983839120_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (18.7ms)
+Completed 200 OK in 109ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:31:29 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313986195020_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 121ms (Views: 41.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:31:30 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_10446920_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (3.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (54.3ms)
+Completed 200 OK in 114ms (Views: 80.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-18 21:31:31 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_14482940_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 80ms (Views: 48.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 21:31:58 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313782319660_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (3.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (41.8ms)
+Completed 200 OK in 144ms (Views: 102.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 21:36:39 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 118ms (Views: 48.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:29:44 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_10231480_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (52.2ms)
+Completed 200 OK in 110ms (Views: 76.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:29:44 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_15985860_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 75ms (Views: 44.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:32:15 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_20995040_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 116ms (Views: 82.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:32:16 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_31175240_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 75ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 23:34:21 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.8ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 88ms (Views: 83.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:40:24 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313918741980_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 100ms (Views: 40.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:40:25 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313983528340_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.0ms)
+Completed 200 OK in 99ms (Views: 44.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:40:25 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313987464640_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 99ms (Views: 38.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:43:21 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_11709780_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (49.9ms)
+Completed 200 OK in 120ms (Views: 88.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:43:22 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_16749600_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 71ms (Views: 41.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E=" for 127.0.0.1 at 2012-12-18 23:43:22 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"Hnro4yfEYXd0hJGQSuk84WhnN9eYjCcOBXb4/ZPP/1E="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313816822000_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 74ms (Views: 42.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 23:43:36 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.5ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (24.9ms)
+Completed 200 OK in 66ms (Views: 56.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 23:46:33 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.7ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 55ms (Views: 49.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 23:46:33 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.7ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 52ms (Views: 46.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-18 23:46:42 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.8ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (54.7ms)
+Completed 200 OK in 82ms (Views: 76.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-19 00:04:52 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.9ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 79ms (Views: 71.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-19 00:04:53 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (0.8ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (54.9ms)
+Completed 200 OK in 85ms (Views: 79.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-19 00:04:56 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.5ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 66ms (Views: 55.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-19 00:06:47 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (1.1ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (58.5ms)
+Completed 200 OK in 89ms (Views: 82.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-19 00:07:06 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (41.1ms)
+Completed 200 OK in 78ms (Views: 69.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-12-19 00:08:06 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[35mProject Load (1.3ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (57.6ms)
+Completed 200 OK in 96ms (Views: 88.3ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/" for 127.0.0.1 at 2012-12-19 00:08:26 +0600
+  Processing by ProjectsController#index as HTML
+  Parameters: {"token"=>"06a186da9407a50bc35d18dbabc58145bd1e89ce"}
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (23.6ms)
+Completed 200 OK in 50ms (Views: 43.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/" for 127.0.0.1 at 2012-12-19 00:14:14 +0600
+  Processing by ProjectsController#index as HTML
+  Parameters: {"token"=>"17c16e8dc3704e12bbd336f5e149107ab6e6ed04"}
+  [1m[35mProject Load (0.9ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (55.5ms)
+Completed 200 OK in 83ms (Views: 76.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-12-19 00:14:26 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (1.3ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 75ms (Views: 65.8ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/" for 127.0.0.1 at 2012-12-19 00:15:23 +0600
+  Processing by ProjectsController#index as HTML
+  Parameters: {"token"=>"a1c306ef1e8e6a0caca3c89f78429f9bc2453a62"}
+  [1m[35mProject Load (1.1ms)[0m  SELECT "projects".* FROM "projects"
+Rendered projects/index.html.erb within layouts/application (24.4ms)
+Completed 200 OK in 48ms (Views: 42.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2012-12-19 00:15:38 +0600
+
+ActionController::RoutingError (No route matches "/sign_in"):
+  
+
+Rendered /usr/local/rvm/gems/ruby-1.9.2-p320@railstutorial/gems/actionpack-3.0.10/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2012-12-19 00:15:46 +0600
+  Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313816825400_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (3.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (32.2ms)
+Completed 200 OK in 96ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2012-12-19 00:17:54 +0600
+  Processing by ProjectsController#index as HTML
+  [1m[36mProject Load (0.8ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+Rendered projects/index.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 92ms (Views: 86.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_in?authenticity_token=QVa+JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ=" for 127.0.0.1 at 2012-12-19 00:19:45 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"QVa JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_19138600_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 102ms (Views: 65.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=QVa+JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ=" for 127.0.0.1 at 2012-12-19 00:22:29 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"QVa JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313917172200_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 112ms (Views: 76.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=QVa+JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ=" for 127.0.0.1 at 2012-12-19 00:22:31 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"QVa JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313917879740_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 70ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=QVa+JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ=" for 127.0.0.1 at 2012-12-19 00:22:31 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"QVa JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313918528640_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 102ms (Views: 41.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in?authenticity_token=QVa+JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ=" for 127.0.0.1 at 2012-12-19 00:22:32 +0600
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"QVa JpRlGeEj7T0k11PjGFwI1sycVK3SbS6CkNMJHJQ="}
+DEPRECATION WARNING: Using form_for(:name, @resource) is deprecated. Please use form_for(@resource, :as => :name) instead. (called from _app_views_devise_sessions_new_html_erb___4503833473760825188_70313918747100_558970521066526780 at /media/work/railsprojects/devise_rpx_connectable/app/views/devise/sessions/new.html.erb:3)
+Rendered devise/shared/_links.erb (2.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 105ms (Views: 44.7ms | ActiveRecord: 0.0ms)
